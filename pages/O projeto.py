@@ -1,44 +1,39 @@
 import streamlit as st
 
-st.set_page_config(page_title='TechChallenge FIAP - Data Analytics | Relatório - Exportação de Vinhos', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide')
+st.set_page_config(page_title='O Projeto | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png')
 
-col1, col2 = st.columns(2)
-with col1:
-    st.title('O Projeto')
-    st.markdown('''
-    O objetivo do projeto, é entregar a análise de um conjunto de dados disponível no [site da Embrapa](https://www.cnpuv.embrapa.br/vitibrazil/index.php?opcao=opt_02) e que contém informações sobre a quantidade de uvas processadas, produção e comercialização de vinhos, sucos e derivados, proveninentes do Estado do Rio Grande do Sul e que, ainda de acordo com a **Embrapa**, representa mais de 90% da produção nacional.
+st.image('https://www.freewebheaders.com/wp-content/gallery/drinks/awesome-wine-barrel-and-bottle-with-red-wine-glasses-web-header.jpg', caption='Foto retirada de Free Webheaders.com')
+
+st.title('O Projeto')
+st.markdown('''
+O objetivo do projeto, é entregar a análise de um conjunto de dados disponível no [site da Embrapa](https://www.cnpuv.embrapa.br/vitibrazil/index.php?opcao=opt_02) e que contém informações sobre a quantidade de uvas processadas, produção e comercialização de vinhos, sucos e derivados, proveninentes do Estado do Rio Grande do Sul e que, ainda de acordo com a **Embrapa**, representa mais de 90% da produção nacional.
     
-    Este projeto é parte integrante da finalização do primeiro módulo do curso de Pós-Graduação em Data Analytics da FIAP.   
-''')
-with col2:
-    st.image('https://images.unsplash.com/photo-1593535388526-a6b8556c5351?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', caption='Foto de Tina Witherspoon no Unsplash')
-
-st.write('---')
-st.write('## Tarefa')
-st.write('''
-    Criar um relatório inicial que será apresentado a um grupo de investidores e acionistas, explicando a quantidade de vinhos exportados e os fatores externos que podem vir a surgir e que interferem nas análises:
-
-    1. Dados climáticos
-    2. Dados demográficos
-    3. Dados econômicos
-    4. Dados de avaliações de vinhos     
-
+Este projeto é parte integrante da finalização do primeiro módulo do curso de Pós-Graduação em Data Analytics da FIAP.
     
-    Além disso, é esperado que seja construída uma tabela que contenha as seguintes informações:
-         
-    a. País de origem (Brasil)
+## Tarefa
 
-    b. País de destino
+Criar um relatório inicial que será apresentado a um grupo de investidores e acionistas, explicando a quantidade de vinhos exportados e os fatores externos que podem vir a surgir e que interferem nas análises:
 
-    c. Quantidade em litros de vinho exportado
+1. Dados climáticos
+2. Dados demográficos
+3. Dados econômicos
+4. Dados de avaliações de vinhos     
+        
+Além disso, é esperado que seja construída uma tabela que contenha as seguintes informações:
+            
+a. País de origem (Brasil)
 
-    d. Valores em dólar americano (US$)
+b. País de destino
+
+c. Quantidade em litros de vinho exportado
+
+d. Valores em dólar americano (US$)
+
+## Objetivo
+
+Dizer o montante de venda de exportação nos **últimos 15 anos**, separando a análise por país e trazendo quais as prospecções futuras e possíveis ações para uma melhoria nas exportações, através da construção de gráficos que passem a ideia central para que os acionistas e investidores possam seguir em frente com suas ações.         
+    
 ''')
-
-st.write('### Objetivo')
-st.write('''
-    Dizer o montante de venda de exportação nos **últimos 15 anos**, separando a análise por país e trazendo quais as prospecções futuras e possíveis ações para uma melhoria nas exportações, através da construção de gráficos que passem a ideia central para que os acionistas e investidores possam seguir em frente com suas ações.
-         ''')
 
 st.write('---')
 st.write('#### Quem fez :technologist:')
