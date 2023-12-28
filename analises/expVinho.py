@@ -1,10 +1,4 @@
-# %% [markdown]
-# # Dados de Exportação
 
-# %% [markdown]
-# ## Conhecendo, ordenado e explorando os dados
-
-# %%
 # importando bibliotecas
 import pandas as pd
 import plotly.express as px
@@ -419,3 +413,9 @@ fig.update_yaxes(title_text='Valor')
 fig.show()
 
 
+# exportando DataFrames para utilização no Streamlit
+
+#df_exportacao_consolidado.to_csv('bases/df_exportacao_consolidado.csv')
+
+df_exportacao_consolidado
+# %%
