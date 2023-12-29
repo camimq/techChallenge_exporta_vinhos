@@ -15,7 +15,7 @@ Não é um tópico de interesse de negócio mas, está voltado para equipes téc
 ''')
 
 st.markdown('''
-###### 1. `df_exportação`
+###### 1. `df_exportacao`
 DataFrame criado à partir da base de dados original. Algumas limpezas e manipulações foram feitas para que, no final, tivéssemos um DataFrame com as seguintes colunas:
                       
 - Colunas País: com todos os países destino de exportação
