@@ -21,6 +21,8 @@ DataFrame criado à partir da base de dados original. Algumas limpezas e manipul
 - Colunas País: com todos os países destino de exportação
 - Colunas 2008 à 2022: cada ano possui o registro de valores de exportação. Da forma como a base de dados veio, há duas colunas de ano para cada ano; uma coluna contém o **valor monetário** em dólar americado (US$) e a outra coluna contém a **quantidade** de produto exportado em litros.
 ''')
+df_exportacao = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfexportacao.csv')
+st.dataframe(df_exportacao, use_container_width=True)
 
 st.markdown('---')
 
