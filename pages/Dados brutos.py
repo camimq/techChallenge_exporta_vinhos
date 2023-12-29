@@ -55,9 +55,6 @@ Cria um DataFrame, atravé do `mege` dos DataFrames `exportacao_por_pais` e `val
 - Coluna País de Origem: ainda não com o país correto mas, já com o espaço para inclusão dessa informação.
 ''')
 
-df_exportacao_consolidado = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfExporta.csv')
-st.dataframe(df_exportacao_consolidado, use_container_width=True)
-
 st.markdown('---')
 
 st.markdown('''
