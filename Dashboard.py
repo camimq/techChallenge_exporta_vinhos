@@ -39,7 +39,10 @@ with aba1:
     ''')
 
 with aba2:
-    st.markdown('# Análise')
+    st.markdown('# Tabela de Análise')
+    df_exportacao_consolidado = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfExportacaoConsolidado.csv')
+    df_exportacao_conssolidado = df_exportacao_consolidado['País de Origem'] = 'Brasil'
+    st.dataframe(df_exportacao_consolidado, use_container_width=True)
 with aba3:
     st.markdown('# Conclusão')
     st.markdown('''
