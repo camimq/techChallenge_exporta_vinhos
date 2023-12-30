@@ -7,7 +7,7 @@ st.set_page_config(page_title='Dados brutos | TechChallenge FIAP :wine_glass:', 
 st.title('Dados brutos')
 
 st.markdown('## Dicionário de Dados :nerd_face:')
-st.markdown(''''Diversas transformações e DataFrames foram criados no decorrer do projeto para que fosse possível as análises apresentadas na página de Dashboard.'
+st.markdown('''Diversas transformações e DataFrames foram criados no decorrer do projeto para que fosse possível as análises apresentadas na página de Dashboard.'
             
 Para que que as informações fiquem organizadas e seja possível mapear o que feito, segue abaixo um "dicionário" com os DataFrames criados à partir da base de dados original.
 
