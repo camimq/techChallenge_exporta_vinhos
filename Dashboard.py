@@ -4,14 +4,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png')
-aba1, aba2, aba3, aba4, aba5, aba6, aba7, aba8 = st.tabs(['Histórico', 'Produção', 'Exportação', 'Comercialização', 'Importação', 'Influências', 'Consumo', 'Conclusão'])
+aba1, aba2, aba3 = st.tabs(['Histórico', 'Análise', 'Conclusão'])
 col1, col2 = st.columns(2)
 
 with aba1:
 
-
     st.markdown('''
-    ## O Vinho no Brasil
+    # O Vinho no Brasil
                     
     A história do vinho no Brasil se inicia junto com a história da colonização Portuguesa por aqui. A primeira videira foi plantada em 1532, na Capitania de São Vicente, por Brás Cubas, fundador da cidade de Santos. Contudo, essa primeira tentativa não deu certo porque o clima do litoral não era favorável para o cultivo da uva.
     
@@ -35,18 +34,17 @@ with aba1:
     O Brasil hoje conta com 1100 vinícolas. Delas, 50 mil famílias vivem da produção de uvas e vinhos e são os responsáveis diretos por tornar o Brasil o 15º maior produtor de vinhos do mundo. De acordo com a [última medição](https://g1.globo.com/pr/parana/especial-publicitario/porto-a-porto/guia-do-vinho-e-da-gastronomia/noticia/2023/10/03/e-o-maior-produtor-mundial-de-vinho-e.ghtml), o Brasil produziu 3,2 milhões de litros de vinho, um crescimento de 1,2% em relação a medição anterior.
 
     De acordo com os dados de 2022, a produção nacional aumentou 14% em relação às últimas cinco safras. Após oito anos de encolhimento, o setor voltou a crescer e hoje, produtores de vinho e toda a cadeia produtiva do setor, estão otimistas com o que o futuro reserva.
+                
+    [:arrow_up_small:[Topo da página]](#o-vinho-no-brasil)
     ''')
 
-
-st.markdown('[:arrow_up_small:[Topo da página]](#o-vinho-no-brasil)')
-
 with aba2:
-    st.markdown('## Produção')
+    st.markdown('# Análise')
 with aba3:
-    st.markdown('## Exportação')
+    st.markdown('# Conclusão')
     st.markdown('''
                 
-                                Criar um relatório inicial que será apresentado a um grupo de investidores e acionistas, explicando a quantidade de vinhos exportados e os fatores externos que podem vir a surgir e que interferem nas análises:
+                Criar um relatório inicial que será apresentado a um grupo de investidores e acionistas, explicando a quantidade de vinhos exportados e os fatores externos que podem vir a surgir e que interferem nas análises:
 
                 1. Dados climáticos
                 2. Dados demográficos
@@ -68,14 +66,3 @@ with aba3:
                 Dizer o montante de venda de exportação nos **últimos 15 anos**, separando a análise por país e trazendo quais as prospecções futuras e possíveis ações para uma melhoria nas exportações, através da construção de gráficos que passem a ideia central para que os acionistas e investidores possam seguir em frente com suas ações.  
                 ### Tabela de Exportação
 ''')
-
-with aba4:
-    st.markdown('## Comercialização')
-with aba5:
-    st.markdown('## Importação')
-with aba6:
-    st.markdown('## Influências')
-with aba7:
-    st.markdown('## Consumo')
-with aba8:
-    st.markdown('## Conclusão')
