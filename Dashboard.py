@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide')
+st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png')
 aba1, aba2, aba3, aba4, aba5, aba6, aba7, aba8 = st.tabs(['Histórico', 'Produção', 'Exportação', 'Comercialização', 'Importação', 'Influências', 'Consumo', 'Conclusão'])
 col1, col2 = st.columns(2)
 
