@@ -1,9 +1,19 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png')
+
+# Formata números da aplicação
+def formata_numero(valor, prefixo = ''):
+    for unidade in ['', 'mil']:
+        if valor < 1000:
+            return f'{prefixo} {valor:.2f} {unidade}'
+        valor /= 1000
+    return f'{prefixo} {valor:.2f} milhões'
+
 aba1, aba2, aba3 = st.tabs(['Histórico', 'Análise', 'Conclusão'])
 col1, col2 = st.columns(2)
 
@@ -16,7 +26,7 @@ with aba1:
     
     Por isso, depois de alguns testes, na região do Tatuapé, em São Paulo, nasce a primeira vinha do Brasil. Algumas décadas depois, as missões jesuítas que rodavam o país inteiro chegaram na região Sul do país e, junto com eles, a cultura do vinho. Há registros de videiras cultivadas na região nos anos de 1626. Desde então, essa cultura se manteve, virou tradição e hoje, coloca o Brasil no mapa de um dos principais produtores e exportadores de vinhos do mundo.
     
-    Hoje o Brasil tem forte presença no mercado internacional de vinhos tendo regiões produtivas não só no Rio Grande do Sul como também em Santa Catarina, Paraná, São Paulo, Minas Geraisl, Foiás, Bahia, Pernambuco e Ceará.
+    Hoje o Brasil tem forte presença no mercado internacional de vinhos tendo regiões produtivas não só no Rio Grande do Sul como também em Santa Catarina, Paraná, São Paulo, Minas Gerais, Foiás, Bahia, Pernambuco e Ceará.
     ''')
 
     st.image('https://brasildevinhos.com.br/wp-content/uploads/2023/11/Imagem-2.jpeg', caption='Imagem retirada do site Brasil de Vinhos')
@@ -40,32 +50,38 @@ with aba1:
 
 with aba2:
     st.markdown('# Tabela de Análise')
-    df_exportacao_consolidado = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfExportacaoConsolidado.csv')
-    df_exportacao_conssolidado = df_exportacao_consolidado['País de Origem'] = 'Brasil'
-    st.dataframe(df_exportacao_consolidado, use_container_width=True)
-with aba3:
-    st.markdown('# Conclusão')
-    st.markdown('''
-                
-                Criar um relatório inicial que será apresentado a um grupo de investidores e acionistas, explicando a quantidade de vinhos exportados e os fatores externos que podem vir a surgir e que interferem nas análises:
-
-                1. Dados climáticos
-                2. Dados demográficos
-                3. Dados econômicos
-                4. Dados de avaliações de vinhos     
-                        
-                Além disso, é esperado que seja construída uma tabela que contenha as seguintes informações:
-                            
-                a. País de origem (Brasil)
-
-                b. País de destino
-
-                c. Quantidade em litros de vinho exportado
-
-                d. Valores em dólar americano (US$)
-
-                ## Objetivo
-
-                Dizer o montante de venda de exportação nos **últimos 15 anos**, separando a análise por país e trazendo quais as prospecções futuras e possíveis ações para uma melhoria nas exportações, através da construção de gráficos que passem a ideia central para que os acionistas e investidores possam seguir em frente com suas ações.  
-                ### Tabela de Exportação
+    st.markdown('''## Resumo das Exportações
+A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido.
 ''')
+    df_exportacao_consolidado = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfExportacaoConsolidado.csv')
+    
+    # insere widget de soma de valores de exportação (receita + litros)
+    col1, col2 = st.columns(2)
+    with col1:
+            st.metric('Receita Total em  US$', formata_numero(df_exportacao_consolidado['Valor Total (US$)'].sum(), 'US$'))
+
+    with col2:
+         st.metric('Total de Vinho Exportado (L)', formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].sum(), ''))
+    
+    # tras coluna país para o começo da tabela
+    df_exportacao_consolidado_reordenado = df_exportacao_consolidado.sort_index(axis=1)
+
+    # adiciona o país de origem
+    df_exportacao_conssolidado_reordenado = df_exportacao_consolidado_reordenado['País de Origem'] = 'Brasil'
+
+    # soma total de exportações
+    soma_valores = df_exportacao_consolidado_reordenado['Valor Total (US$)'].sum()
+
+     # soma total de litros exportados
+    soma_litros = df_exportacao_consolidado['Qtd. Total (L)'].sum()
+
+    st.dataframe(df_exportacao_consolidado_reordenado, use_container_width=True)
+    st.markdown('Entre 2008 e 2022, o Brasil exportou um total de ' f'**$ {soma_valores}' ' dólares** em vinhos, totalizando ' f'**{soma_litros}' ' milhões de litros**.')
+    
+    st.markdown('Se olharmos para os 5 principais exportadores de vinho do Brasil, notaremos que estes, são responsáveis por 50% do total de exportações do país. Por isso, é possível olhar para este quadro de duas formas:')
+    
+    st.markdown(''' 
+        **1.** O Brasil tem como primeiro objetivo, manter relacionamento aproximado com Paraguai, Rússia, Estados Unidos, China e Reino Unido, **com o objetivo de, inicialmente, manter o volume de exportações** e, posteriormente, entender ações cabíveis e estudar espaço para crescimento, se houver.
+
+        **2.** Entender como a outra porção de mercado pode ser explorada para que a penetração do Brasil nestes mercados seja maior, levando o país a um crescimento no _market share_ destes países e elevando a nossa posição no _ranking_ de exportadores de vinho.  
+    ''')
