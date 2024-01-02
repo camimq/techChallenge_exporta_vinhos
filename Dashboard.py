@@ -127,7 +127,111 @@ with aba2:
     ''')
 
     st.markdown('---')
+    
+    st.markdown('# Resumo da Evolução de Exportação')
+    
+    # constroi DataFrames e gráficos que serão utilizados #
 
+    ## cria DataFrame exportacao_por_pais
+    
+    ### cria df_exportacao, utilizando a base de dados original
+    df_exportacao = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/ExpVinho.csv', sep=';')
+
+    ### cria df_exportacao_por_pais - LITROS
+    exportacao_por_pais = df_exportacao[['País', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']]
+
+    #### cria coluna de soma total para quantidade de exportação
+    exportacao_por_pais['Qtd. Total (L)'] = exportacao_por_pais ['2008']+exportacao_por_pais ['2009']\
+    +exportacao_por_pais ['2010']+exportacao_por_pais ['2011']+exportacao_por_pais ['2012']\
+    +exportacao_por_pais ['2013']+exportacao_por_pais ['2014']+exportacao_por_pais ['2015']\
+    +exportacao_por_pais ['2016']+exportacao_por_pais ['2017']+exportacao_por_pais ['2018']\
+    +exportacao_por_pais ['2019']+exportacao_por_pais ['2020']+exportacao_por_pais ['2021']\
+    +exportacao_por_pais ['2022']
+
+    #### exclui linhas de total com valor == 0
+    exportacao_por_pais.drop(exportacao_por_pais.loc[exportacao_por_pais['Qtd. Total (L)']==0].index, inplace=True)
+
+    #### ordenando valor da maior quantidade para a menor
+    exportacao_por_pais = exportacao_por_pais.sort_values(by='Qtd. Total (L)', ascending=False)
+
+    ### cria valor_exportacao_por_pais - RECEITA
+    valor_exportacao_por_pais = df_exportacao[['País', '2008.1', '2009.1', '2010.1', '2011.1', '2012.1', '2013.1', '2014.1', '2015.1', '2016.1', '2017.1', '2018.1', '2019.1', '2020.1', '2021.1', '2022.1']]
+
+    #### cria coluna de soma total para receita de exportação
+    valor_exportacao_por_pais['Valor Total (US$)'] = valor_exportacao_por_pais ['2008.1']+valor_exportacao_por_pais ['2009.1']\
+    +valor_exportacao_por_pais ['2010.1']+valor_exportacao_por_pais ['2011.1']  +valor_exportacao_por_pais ['2012.1']\
+    +valor_exportacao_por_pais ['2013.1']+valor_exportacao_por_pais ['2014.1']  +valor_exportacao_por_pais ['2015.1']\
+    +valor_exportacao_por_pais ['2016.1']+valor_exportacao_por_pais ['2017.1']  +valor_exportacao_por_pais ['2018.1']\
+    +valor_exportacao_por_pais ['2019.1']+valor_exportacao_por_pais ['2020.1']  +valor_exportacao_por_pais ['2021.1']\
+    +valor_exportacao_por_pais ['2022.1']
+
+    #### exclui linhas com valor monetário total == 0
+    valor_exportacao_por_pais.drop(valor_exportacao_por_pais.loc[valor_exportacao_por_pais['Valor Total (US$)']==0].index, inplace=True)
+
+    #### ordenando valor do maior valor para o menor
+    valor_exportacao_por_pais = valor_exportacao_por_pais.sort_values(by='Valor Total (US$)', ascending=False)
+
+    ## cria DataFrame para desenvolvimento de gráfico de linha - LITROS
+    dados_grafico_linha_qtd = exportacao_por_pais.set_index('País')
+    dados_grafico_linha_qtd = dados_grafico_linha_qtd.drop('Qtd. Total (L)', axis=1)
+
+    ### transpondo tabela
+    dado_qtd=dados_grafico_linha_qtd.head()
+    dado_qtd = dado_qtd.T
+    
+    # cria dataframe desenvolvimento do gráfico de linha - RECEITA
+    dados_grafico_linha_valor = valor_exportacao_por_pais.set_index('País')
+    dados_grafico_linha_valor = dados_grafico_linha_valor.drop('Valor Total (US$)', axis=1)
+    
+    ## atualiza os nomes de colunas
+    dados_grafico_linha_valor.rename(columns={'2008.1': '2008'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2009.1': '2009'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2010.1': '2010'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2011.1': '2011'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2012.1': '2012'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2013.1': '2013'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2014.1': '2014'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2015.1': '2015'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2016.1': '2016'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2017.1': '2017'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2018.1': '2018'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2019.1': '2019'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2020.1': '2020'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2021.1': '2021'}, inplace=True)
+    dados_grafico_linha_valor.rename(columns={'2022.1': '2022'}, inplace=True)
+
+    # transpondo tabela
+    dado_valor = dados_grafico_linha_valor.head()
+    dado_valor = dado_valor.T
+    
+    # criando gráficos
+    
+    ## evolução de quantidade para o top 5 compradores - LITROS
+    fig_evolucao_volume_top_five = px.line(dado_qtd,
+                x=dado_qtd.index,
+                y=dado_qtd.columns, 
+                markers=True,
+                template='plotly_white',
+                title='Evolução de exportação para os 5 maiores compradores (em L)',
+                width=700
+            )
+    
+    ## evolução de receita para o top 5 compradores
+    fig_evolucao_receita_top_five = px.line(dado_valor,
+                x=dado_valor.index, 
+                y= dado_valor.columns, 
+                markers=True, 
+                template='plotly_white', 
+                title='Evolução de exportação para os 5 maiores compradores (em US$)', 
+                width=700
+            )
+    
+    # --------------------------------------------------------------------------------------#
+
+    st.plotly_chart(fig_evolucao_volume_top_five, use_container_width=True)
+    st.plotly_chart(fig_evolucao_receita_top_five, use_container_width=True)
+
+    st.markdown('---')
 
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
