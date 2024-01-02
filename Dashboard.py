@@ -49,10 +49,9 @@ with aba1:
     ''')
 
 with aba2:
-    st.markdown('# Tabela de Análise')
-    st.markdown('''## Resumo das Exportações
-A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido.
-''')
+    st.markdown('# Resumo das Exportações')
+    st.markdown('''A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido.
+    ''')
     df_exportacao_consolidado = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfExportacaoConsolidado.csv')
     
     # insere widget de soma de valores de exportação (receita + litros)
@@ -78,16 +77,18 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
 
     st.dataframe(df_exportacao_consolidado_reordenado, use_container_width=True)
     st.markdown('Entre 2008 e 2022, o Brasil exportou um **total de ' f'$ {soma_valores}' ' dólares em vinhos, que corresponde a 'f'{soma_litros}' ' litros produzidos e exportados**.')
+
+    st.markdown('---')
     
-    st.markdown('## Top 5 Exportadores')
+    st.markdown('# Top 5 Importadores')
     st.markdown('Se olharmos para os 5 principais exportadores de vinho do Brasil, notaremos que estes são responsáveis por 50% do total de exportações do país.')
     
     col3, col4 = st.columns(2)
     with col3:
-        st.metric('Receita Total | Top 5 Exportadores', formata_numero(df_exportacao_consolidado['Valor Total (US$)'].head().sum(), 'US$'))
+        st.metric('Receita Total | Top 5 Importadores', formata_numero(df_exportacao_consolidado['Valor Total (US$)'].head().sum(), 'US$'))
     
     with col4:
-        st.metric('Total de Vinho Exportado (L) | Top 5 Exportadores', formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].head().sum(), ''))
+        st.metric('Total de Vinnho Exportado (L) | Top 5 Importadores', formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].head().sum(), ''))
 
     # constrói DataFrame do Gráfico de Barras Top 5
     dados_grafico_barras = df_exportacao_consolidado.head()
@@ -97,12 +98,12 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
     fig_top5_exportadores = px.bar(dados_grafico_barras, x=dados_grafico_barras.index,
                                    y=dados_grafico_barras.columns, 
                                    barmode='group',
-                                   title = 'Top 5 Exportadores | Receita (US$) e Quantidade (L) Exportados',
+                                   title = 'Top 5 Importadores | Receita (US$) e Quantidade (L) Exportados',
                                 )
     fig_top5_exportadores.update_xaxes(title_text="Ano")
     fig_top5_exportadores.update_yaxes(title_text="Valor")
     
-    st.markdown('Por isso, é possível olhar para este quadro de duas formas:')
+    st.markdown('Por isso, de início, temos duas constatações importantes:')
     col5, col6 = st.columns(2)
 
 
@@ -117,4 +118,24 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
     
     st.plotly_chart(fig_top5_exportadores, use_container_width=True)
 
+    st.markdown('''
+    Entre os **top 5 importadores**, nota-se uma imediata oportunidade de crescimento entre Estados Unidos, China e Reino Unido.
     
+    Segundo a [Ideal Consulting](https://www.gazetadopovo.com.br/bomgourmet/negocios-e-franquias/exportacao-vinhos-brasileiros-avanca-eua-china/), o interesse nos espumantes produzidos no Brasil teve um crscimento relevante nos últimos anos, especialmente entre Estados Unidos e China. Segundo esta mesma consultoria, o Brasil é o 4º maior produtor deste tipo de vinho no pais. **Portanto, esta é uma janela que possibilita o crescimento do Brasil nesses dois mercados.**
+    
+    Para a [Associação Brasileira de Enologia](https://www.enologia.org.br/noticia/uma-porta-aberta-para-os-vinhos-brasileiros-no-reino-unido), a principal porta de entrada para o mercado britânico, segue sendo o International Wine Challenge IIWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, **é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço**.
+    ''')
+
+    st.markdown('---')
+
+
+    with aba3:
+         st.markdown('# Plano de Ação / Próximos Passos')
+
+         st.markdown('''
+        - Investimento em ações que fortaleçam e aproximem, ainda mais, a relação comercial entre o Brasil e os TOP 5 países importadores do nosso vinho (Paraguai, Rússia, Estados Unidos, China e Reino Unido).
+        - Elencar e estudar as viabilidade de crescimento do _market share_ dos países fora do TOP 5, buscando definir esses parceiros de acordo com o potencial de crescimento, sem perder de vista o nível de investimento necessário para qu isso aconteça, como fator determinando para priorizição.
+        - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
+        - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
+        ''')
+    st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')
