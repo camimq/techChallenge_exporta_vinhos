@@ -70,15 +70,17 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
     df_exportacao_conssolidado_reordenado = df_exportacao_consolidado_reordenado['País de Origem'] = 'Brasil'
 
     # soma total de exportações
-    soma_valores = df_exportacao_consolidado_reordenado['Valor Total (US$)'].sum()
+    # soma_valores = df_exportacao_consolidado_reordenado['Valor Total (US$)'].sum()
+    soma_valores = formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].sum(), '')
 
-     # soma total de litros exportados
-    soma_litros = df_exportacao_consolidado['Qtd. Total (L)'].sum()
+    # soma total de litros exportados
+    soma_litros = formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].sum(), '')
 
     st.dataframe(df_exportacao_consolidado_reordenado, use_container_width=True)
-    st.markdown('Entre 2008 e 2022, o Brasil exportou um total de ' f'**$ {soma_valores}' ' dólares** em vinhos, totalizando ' f'**{soma_litros}' ' milhões de litros**.')
+    st.markdown('Entre 2008 e 2022, o Brasil exportou um **total de ' f'$ {soma_valores}' ' dólares em vinhos, que corresponde a 'f'{soma_litros}' ' litros produzidos e exportados**.')
     
-    st.markdown('Se olharmos para os 5 principais exportadores de vinho do Brasil, notaremos que estes, são responsáveis por 50% do total de exportações do país.')
+    st.markdown('## Top 5 Exportadores')
+    st.markdown('Se olharmos para os 5 principais exportadores de vinho do Brasil, notaremos que estes são responsáveis por 50% do total de exportações do país.')
     
     col3, col4 = st.columns(2)
     with col3:
@@ -87,7 +89,7 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
     with col4:
         st.metric('Total de Vinho Exportado (L) | Top 5 Exportadores', formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].head().sum(), ''))
 
-    # constrói DataFrame do Gráfico de Barras
+    # constrói DataFrame do Gráfico de Barras Top 5
     dados_grafico_barras = df_exportacao_consolidado.head()
     dados_grafico_barras = dados_grafico_barras.set_index('País de destino')
     dados_grafico_barras=dados_grafico_barras.drop(columns=('País de Origem'))
@@ -95,7 +97,7 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
     fig_top5_exportadores = px.bar(dados_grafico_barras, x=dados_grafico_barras.index,
                                    y=dados_grafico_barras.columns, 
                                    barmode='group',
-                                   title = 'Top 5 Exportadores | Receita (US$) e Quantidade (L) Exportados'
+                                   title = 'Top 5 Exportadores | Receita (US$) e Quantidade (L) Exportados',
                                 )
     fig_top5_exportadores.update_xaxes(title_text="Ano")
     fig_top5_exportadores.update_yaxes(title_text="Valor")
@@ -114,3 +116,5 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
         ''')
     
     st.plotly_chart(fig_top5_exportadores, use_container_width=True)
+
+    
