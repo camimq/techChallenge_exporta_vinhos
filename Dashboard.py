@@ -78,10 +78,39 @@ A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022
     st.dataframe(df_exportacao_consolidado_reordenado, use_container_width=True)
     st.markdown('Entre 2008 e 2022, o Brasil exportou um total de ' f'**$ {soma_valores}' ' dólares** em vinhos, totalizando ' f'**{soma_litros}' ' milhões de litros**.')
     
-    st.markdown('Se olharmos para os 5 principais exportadores de vinho do Brasil, notaremos que estes, são responsáveis por 50% do total de exportações do país. Por isso, é possível olhar para este quadro de duas formas:')
+    st.markdown('Se olharmos para os 5 principais exportadores de vinho do Brasil, notaremos que estes, são responsáveis por 50% do total de exportações do país.')
     
-    st.markdown(''' 
-        **1.** O Brasil tem como primeiro objetivo, manter relacionamento aproximado com Paraguai, Rússia, Estados Unidos, China e Reino Unido, **com o objetivo de, inicialmente, manter o volume de exportações** e, posteriormente, entender ações cabíveis e estudar espaço para crescimento, se houver.
+    col3, col4 = st.columns(2)
+    with col3:
+        st.metric('Receita Total | Top 5 Exportadores', formata_numero(df_exportacao_consolidado['Valor Total (US$)'].head().sum(), 'US$'))
+    
+    with col4:
+        st.metric('Total de Vinho Exportado (L) | Top 5 Exportadores', formata_numero(df_exportacao_consolidado['Qtd. Total (L)'].head().sum(), ''))
 
-        **2.** Entender como a outra porção de mercado pode ser explorada para que a penetração do Brasil nestes mercados seja maior, levando o país a um crescimento no _market share_ destes países e elevando a nossa posição no _ranking_ de exportadores de vinho.  
-    ''')
+    # constrói DataFrame do Gráfico de Barras
+    dados_grafico_barras = df_exportacao_consolidado.head()
+    dados_grafico_barras = dados_grafico_barras.set_index('País de destino')
+    dados_grafico_barras=dados_grafico_barras.drop(columns=('País de Origem'))
+
+    fig_top5_exportadores = px.bar(dados_grafico_barras, x=dados_grafico_barras.index,
+                                   y=dados_grafico_barras.columns, 
+                                   barmode='group',
+                                   title = 'Top 5 Exportadores | Receita (US$) e Quantidade (L) Exportados'
+                                )
+    fig_top5_exportadores.update_xaxes(title_text="Ano")
+    fig_top5_exportadores.update_yaxes(title_text="Valor")
+    
+    st.markdown('Por isso, é possível olhar para este quadro de duas formas:')
+    col5, col6 = st.columns(2)
+
+
+    with col5:
+        st.markdown('''                     
+            **1.** O Brasil tem como primeiro objetivo, manter relacionamento aproximado com Paraguai, Rússia, Estados Unidos, China e Reino Unido, **com o objetivo de, inicialmente, manter o volume de exportações** e, posteriormente, entender ações cabíveis e estudar espaço para crescimento, se houver.
+        ''')
+    with col6:
+         st.markdown('''
+            **2.** Entender como a outra porção de mercado pode ser explorada para que a penetração do Brasil nestes mercados seja maior, levando o país a um crescimento no _market share_ destes países e elevando a nossa posição no _ranking_ de exportadores de vinho.  
+        ''')
+    
+    st.plotly_chart(fig_top5_exportadores, use_container_width=True)
