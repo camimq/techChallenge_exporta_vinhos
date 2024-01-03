@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png')
+st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide')
 
 # Formata números da aplicação
 def formata_numero(valor, prefixo = ''):
@@ -50,7 +50,7 @@ with aba1:
 
 with aba2:
     st.markdown('# Resumo das Exportações')
-    st.markdown('''A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido.
+    st.markdown('''A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido, considerando valores de Receita como critério de ordenação.
     ''')
     df_exportacao_consolidado = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dfExportacaoConsolidado.csv')
     
@@ -128,7 +128,7 @@ with aba2:
 
     st.markdown('---')
     
-    st.markdown('# Resumo da Evolução de Exportação')
+    st.markdown('# Evolução das Exportações')
     
     # constroi DataFrames e gráficos que serão utilizados #
 
@@ -226,13 +226,58 @@ with aba2:
                 width=700
             )
     
+    # cria gráfio de evolução de exportação Espanha
+    fig_qtd_evolucao_ES = px.line(dado_qtd,
+                x=dado_qtd.index,
+                y='Espanha',
+                markers=True,
+                template='plotly_white',
+                title='Evolução de exportação para os Espanha (L)',
+                width=700
+            )
+    
+    
+    dado_qtd_UK=dados_grafico_linha_qtd.head(10)
+    dado_qtd_UK= dado_qtd_UK.T
+    
+    # cria gráfio de evolução de exportação Reino Unido
+    fig_qtd_evolucao_UK = px.line(dado_qtd_UK,
+        x=dado_qtd_UK.index,
+        y='Reino Unido',
+        markers=True,
+        template='plotly_white',
+        title='Evolução de exportação para os Reino Unido (L)',
+        width=700
+    )
+    
     # --------------------------------------------------------------------------------------#
+    with st.expander('##### :heavy_exclamation_mark: Disclaimer:\n **Fato importante Sobre Espanha e Reino Unido**'):
+        st.markdown('''
+            Abaixo, apresentaremos um conjunto de gráficos que representam a evolução das exportações em termos de volume e receita, para os 5 maiores compradores de vinho do Brasil, entre 2008 e 2022. Desde o início desta análise, consideramos **receita** como critério para definição de ranqueamento dos países que aparecem na análise. Desta forma, tratamos sempre Paraguai, Rússia, Estados Unidos e Reino Unido como principais parceiros do Brasil na compra de vinhos; os **Top 5 Importadores**.
+            
+            Contudo, como verá nos gráficos de evolução onde os 5 principais consumidores são alinhados para comparar a evolução no **volume** de compras e no montante de **receitas**, há um comportamento inesperado quando olhamos para volume: Espanha aparece em 5º lugar, ao invés do Reino Unido.
+        ''')
 
-    st.plotly_chart(fig_evolucao_volume_top_five, use_container_width=True)
-    st.plotly_chart(fig_evolucao_receita_top_five, use_container_width=True)
+        col7, col8 = st.columns(2)
+        with col7:
+            st.plotly_chart(fig_qtd_evolucao_ES, use_container_width=True)
+        with col8:
+            st.plotly_chart(fig_qtd_evolucao_UK, use_container_width=True)
 
-    st.markdown('---')
-
+        st.markdown('''
+            Nos gráficos acima, mostramos a evolução da volumetria de cada país (Espanha e Reino Unido). É possível notar que, pontualmente, em 2013, a Espanha aparece com volume superior ao do Reino Unido que, neste mesmo ano, tem uma queda relevante em seu volume, em relação ao mesmo período do ano anterior.
+            
+            Em contrapartida, olhando para o mesmo gráfico, notamos que o Reino Unido, em 2014, tem um salto na importação de vinhos nacionais. Isso se deve a uma aposta feita pelo país, através da Copestick Murray (uma das principais importadoras britânicas) que enxergou na Copa do Mundo (2014) e nas Olimpíadas (2016), ambas realizadas no Brasil, uma oportunidade de crescimento visto que o país atraiu a atenção do mundo neste período de 3 anos em que os maiores eventos esportivos do mundo aconteceram por aqui. Sendo assim, a [Copestick Murray, junto com a Vinícola Aurora, produziram dois vinhos com um _blend_ pensado especialmente para o mercado britânico](https://g1.globo.com/brasil/noticia/2013/08/de-olho-na-copa-importadores-britanicos-miram-no-vinho-brasileiro.html). Através desse _deal_, as expectativas eram de que o Brasil exportasse para o Reuno Unido o total de 94,l mil litros de vinho em 2013. E deu certo! Se olharmos os resultados de venda 2013 / 2014, temos um total muito superior ao estimado inicialmente.
+        ''')
+  
+    col9, col10 = st.columns(2)
+    with col9:
+        st.plotly_chart(fig_evolucao_volume_top_five, use_container_width=True)
+        st.markdown('ssddasdassd')
+    with col10:    
+        st.plotly_chart(fig_evolucao_receita_top_five, use_container_width=True)
+        st.markdown('ssddasdassd')
+    
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
 
