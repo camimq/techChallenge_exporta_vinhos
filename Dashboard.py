@@ -331,6 +331,7 @@ with aba2:
                     
             Além disso, influências políticas também devem ser consideradas. Na América do Sul, organizações como BRICS e Mercosul, tem papel definitivo na relação comercial entre os países participantes, influenciando positivamente e de forma direta os resultados alcançados afim de fortalecer a economia da região e trazer maior visibilidade para o mercado internacional (com destaque para os países fora do eixo LATAM).
         ''')
+        st.markdown('### Influências na produção do vinho que impactam diretamente na exportação')
 
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
