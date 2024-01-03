@@ -204,8 +204,6 @@ with aba2:
     dado_valor = dados_grafico_linha_valor.head()
     dado_valor = dado_valor.T
     
-    # criando gráficos
-    
     ## evolução de quantidade para o top 5 compradores - LITROS
     fig_evolucao_volume_top_five = px.line(dado_qtd,
                 x=dado_qtd.index,
@@ -272,14 +270,22 @@ with aba2:
             
             Em contrapartida, olhando para o mesmo gráfico, notamos que o Reino Unido, em 2014, tem um salto na importação de vinhos nacionais. Isso se deve a uma aposta feita pelo país, através da Copestick Murray (uma das principais importadoras britânicas) que enxergou na Copa do Mundo (2014) e nas Olimpíadas (2016), ambas realizadas no Brasil, uma oportunidade de crescimento visto que o país atraiu a atenção do mundo neste período de 3 anos em que os maiores eventos esportivos do mundo aconteceram por aqui. Sendo assim, a [Copestick Murray, junto com a Vinícola Aurora, produziram dois vinhos com um _blend_ pensado especialmente para o mercado britânico](https://g1.globo.com/brasil/noticia/2013/08/de-olho-na-copa-importadores-britanicos-miram-no-vinho-brasileiro.html). Através desse _deal_, as expectativas eram de que o Brasil exportasse para o Reuno Unido o total de 94,l mil litros de vinho em 2013. E deu certo! Se olharmos os resultados de venda 2013 / 2014, temos um total muito superior ao estimado inicialmente.
         ''')
-  
+    st.markdown('## Sobre a evolução das exportações')
+    st.write('''
+        Nos últimos 15 anos, o Brasil evoluiu de forma nítida em relação a valores e volumes exportados. Estamos falando de crescimento constante e consistente, que nos coloca em uma posição de destaque no mercado mundial de vinhos.
+    ''')
     col9, col10 = st.columns(2)
     with col9:
         st.plotly_chart(fig_evolucao_volume_top_five, use_container_width=True)
-        st.markdown('ssddasdassd')
+        st.markdown('''
+            A Russia traz em 4 anos (2008, 2009, 2012 e 2013) o consumo de volumes expressivos concentrados somente nesse período. Se considerarmos a série histórica de 15 anos analisados, é possível dizer que, durante todo este período, a Russia tem 44% do total de vinho exportado, sem nenhuma razão aparente ou sem nenhum tipo de correlação. 
+        ''')
     with col10:    
-        st.plotly_chart(fig_evolucao_receita_top_five, use_container_width=True)
-        st.markdown('ssddasdassd')
+        st.image('https://github.com/camimq/techChallenge_exporta_vinhos/blob/main/img/evolucao_sem_russia.png', caption='Imagem do gráfico de evolução sem a Rússia')
+        
+        st.markdown('''
+            Na evolução 
+        ''')
     
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
