@@ -250,7 +250,43 @@ with aba2:
         title='Evolução de exportação para os Reino Unido (L)',
         width=700
     )
-    
+
+    # cria dataframe com valores de quantidade e valor por país
+    dados_valores_totais_pais = df_exportacao_consolidado.drop(columns=('País de Origem'))
+
+    ##  cria df com quantidade exportada total por ano
+    dados_qtd_total_anual = dados_grafico_linha_qtd.sum()
+    dados_qtd_total_anual = pd.DataFrame(dados_qtd_total_anual)
+
+    dados1_qtd_total_anual = dados_qtd_total_anual.reset_index()
+    dados1_qtd_total_anual.index.rename('novoIndex', inplace=True)
+
+    ##  cria df com valor exportada total por ano
+    dados_valor_total_anual = dados_grafico_linha_valor.sum()
+    dados_valor_total_anual = pd.DataFrame(dados_valor_total_anual)
+
+    dados2_valor_total_anual = dados_valor_total_anual.reset_index()
+    dados2_valor_total_anual.index.rename('novoIndex', inplace=True)
+
+    ## cria dataframe com valores totais de exportação por ano(quantidade e valores)
+    dados_totais_qtd_valor = pd.merge(dados1_qtd_total_anual, dados2_valor_total_anual, on='novoIndex', how='left')
+    dados_totais_qtd_valor = dados_totais_qtd_valor.drop('index_y', axis=1)
+
+    ## organizando novo DataFrame para plotar os gráficos
+    dados_totais_qtd_valor.rename(columns={'index_x' : 'Ano', '0_x' : 'Quantidade', '0_y' : 'Valor'}, inplace=True)
+    dados_totais_qtd_valor = dados_totais_qtd_valor
+    dados_totais_qtd_valor = dados_totais_qtd_valor.set_index('Ano')
+
+    ### evolução da quantidade e valor de exportação no período de 2008 à 2022
+    fig_qtd_versus_valor = px.line(dados_totais_qtd_valor,
+                x=dados_totais_qtd_valor.index,
+                y=dados_totais_qtd_valor.columns,
+                markers=True,
+                title='Evolução | Quantidade x Valor',
+    )
+    fig_qtd_versus_valor.update_xaxes(title_text="Ano")
+    fig_qtd_versus_valor.update_yaxes(title_text="Valor") 
+
     # --------------------------------------------------------------------------------------#
     with st.expander('##### :heavy_exclamation_mark: Disclaimer:\n **Fato importante Sobre Espanha e Reino Unido**'):
         st.markdown('''
@@ -281,12 +317,21 @@ with aba2:
             A Russia traz em 4 anos (2008, 2009, 2012 e 2013) o consumo de volumes expressivos concentrados somente nesse período. Se considerarmos a série histórica de 15 anos analisados, é possível dizer que, durante todo este período, a Russia tem 44% do total de vinho exportado, sem nenhuma razão aparente ou sem nenhum tipo de correlação. 
         ''')
     with col10:    
-        st.image('https://github.com/camimq/techChallenge_exporta_vinhos/blob/main/img/evolucao_sem_russia.png', caption='Imagem do gráfico de evolução sem a Rússia')
-        
+        st.image('img\evolucao_sem_russia.png', caption='Imagem do gráfico de evolução sem a Rússia')
         st.markdown('''
-            Na evolução 
+            Mesmo em segundo lugar, o Paraguai tem evolução constante, especialmente, à partir de 2017 e se mantém até 2019, quando há uma queda no consumo, [devido a uma crise política agravada pela situação econômica do país](https://www.redebrasilatual.com.br/mundo/crise-paraguai-situacao-economica/).
+         ''')
+    st.markdown('---')
+    col11, col12 = st.columns(2)
+    with col11:
+        st.plotly_chart(fig_qtd_versus_valor, use_container_width=True)
+    with col12:
+        st.markdown('''
+            Uma das razões que pode explicar o crescimento constante do valor em relação à quantidade (especialmente à partir de 2010), está no aumento do dólar. Se olharmos para a evolução do dólar no período de 2008 à 2022, veremos que, em 2008, o dólar estava cotado a R$ 1,60. Em 2022, a cotação do dólar está em R$ 6,00. Isso significa que, em 2022, o dólar está 3,75 vezes mais caro do que em 2008 e, todo o contexto de negociações de exportação de vinho, está contido nesse valor.
+                    
+            Além disso, influências políticas também devem ser consideradas. Na América do Sul, organizações como BRICS e Mercosul, tem papel definitivo na relação comercial entre os países participantes, influenciando positivamente e de forma direta os resultados alcançados afim de fortalecer a economia da região e trazer maior visibilidade para o mercado internacional (com destaque para os países fora do eixo LATAM).
         ''')
-    
+
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
 
