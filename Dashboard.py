@@ -211,10 +211,11 @@ with aba2:
                 x=dado_qtd.index,
                 y=dado_qtd.columns, 
                 markers=True,
-                template='plotly_white',
                 title='Evolução de exportação para os 5 maiores compradores (em L)',
                 width=700
             )
+    fig_evolucao_volume_top_five.update_xaxes(title_text="Ano")
+    fig_evolucao_volume_top_five.update_yaxes(title_text="Volume")
     
     ## evolução de receita para o top 5 compradores
     fig_evolucao_receita_top_five = px.line(dado_valor,
@@ -225,7 +226,9 @@ with aba2:
                 title='Evolução de exportação para os 5 maiores compradores (em US$)', 
                 width=700
             )
-    
+    fig_evolucao_receita_top_five.update_xaxes(title_text="Ano")
+    fig_evolucao_receita_top_five.update_yaxes(title_text="Valor")  
+
     # cria gráfio de evolução de exportação Espanha
     fig_qtd_evolucao_ES = px.line(dado_qtd,
                 x=dado_qtd.index,
