@@ -15,21 +15,19 @@ def formata_numero(valor, prefixo = ''):
     return f'{prefixo} {valor:.2f} milhões'
 
 aba1, aba2, aba3 = st.tabs(['Histórico', 'Análise', 'Conclusão'])
-col1, col2 = st.columns(2)
 
+# **** [[INÍCIO]] ABA 1 - HISTÓRICO **** #
 with aba1:
-
+    st.image('img\_a2fbca62-86ef-42be-95de-3e1025f90104.jpg', caption='Imagem gerada pelo Copilot do Edge', use_column_width=False)
     st.markdown('''
-    # O Vinho no Brasil
-                    
-    A história do vinho no Brasil se inicia junto com a história da colonização Portuguesa por aqui. A primeira videira foi plantada em 1532, na Capitania de São Vicente, por Brás Cubas, fundador da cidade de Santos. Contudo, essa primeira tentativa não deu certo porque o clima do litoral não era favorável para o cultivo da uva.
-    
-    Por isso, depois de alguns testes, na região do Tatuapé, em São Paulo, nasce a primeira vinha do Brasil. Algumas décadas depois, as missões jesuítas que rodavam o país inteiro chegaram na região Sul do país e, junto com eles, a cultura do vinho. Há registros de videiras cultivadas na região nos anos de 1626. Desde então, essa cultura se manteve, virou tradição e hoje, coloca o Brasil no mapa de um dos principais produtores e exportadores de vinhos do mundo.
-    
-    Hoje o Brasil tem forte presença no mercado internacional de vinhos tendo regiões produtivas não só no Rio Grande do Sul como também em Santa Catarina, Paraná, São Paulo, Minas Gerais, Foiás, Bahia, Pernambuco e Ceará.
-    ''')
-
-    st.image('https://brasildevinhos.com.br/wp-content/uploads/2023/11/Imagem-2.jpeg', caption='Imagem retirada do site Brasil de Vinhos')
+        # O Vinho no Brasil
+                        
+        A história do vinho no Brasil se inicia junto com a história da colonização Portuguesa por aqui. A primeira videira foi plantada em 1532, na Capitania de São Vicente, por Brás Cubas, fundador da cidade de Santos. Contudo, essa primeira tentativa não deu certo porque o clima do litoral não era favorável para o cultivo da uva.
+        
+        Por isso, depois de alguns testes, na região do Tatuapé, em São Paulo, nasce a primeira vinha do Brasil. Algumas décadas depois, as missões jesuítas que rodavam o país inteiro chegaram na região Sul do país e, junto com eles, a cultura do vinho. Há registros de videiras cultivadas na região nos anos de 1626. Desde então, essa cultura se manteve, virou tradição e hoje, coloca o Brasil no mapa de um dos principais produtores e exportadores de vinhos do mundo.
+        
+        Hoje o Brasil tem forte presença no mercado internacional de vinhos tendo regiões produtivas não só no Rio Grande do Sul como também em Santa Catarina, Paraná, São Paulo, Minas Gerais, Foiás, Bahia, Pernambuco e Ceará.
+        ''')
     
     st.markdown('''
     ### O Brasil no mapa global da produção de vinhos
@@ -48,6 +46,10 @@ with aba1:
     [:arrow_up_small:[Topo da página]](#o-vinho-no-brasil)
     ''')
 
+# **** [[FIM]] ABA 1 - HISTÓRICO **** #
+    
+# **** [[INÍCIO]] ABA 2 - ANÁLISE **** #    
+    
 with aba2:
     st.markdown('# Resumo das Exportações')
     st.markdown('''A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido, considerando valores de Receita como critério de ordenação.
@@ -333,6 +335,10 @@ with aba2:
         ''')
         st.markdown('### Influências na produção do vinho que impactam diretamente na exportação')
 
+    # **** [[FIM]] ABA 2 - ANÁLISE **** #    
+        
+    # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** # 
+           
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
 
@@ -343,3 +349,5 @@ with aba2:
         - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
         ''')
     st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')
+
+    # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #   
