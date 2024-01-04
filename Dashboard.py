@@ -17,7 +17,11 @@ def formata_numero(valor, prefixo = ''):
 aba1, aba2, aba3 = st.tabs(['Histórico', 'Análise', 'Conclusão'])
 
 # **** [[INÍCIO]] ABA 1 - HISTÓRICO **** #
+
 with aba1:
+    with st.sidebar:     
+        st.markdown(':sweat_smile: Feito por **Camila Queiroz - RM 351738**')
+
     st.image('img\_a2fbca62-86ef-42be-95de-3e1025f90104.jpg', caption='Imagem gerada pelo Copilot do Edge', use_column_width=True)
     st.markdown('''
         # O Vinho no Brasil
@@ -49,8 +53,8 @@ with aba1:
 # **** [[FIM]] ABA 1 - HISTÓRICO **** #
     
 # **** [[INÍCIO]] ABA 2 - ANÁLISE **** #    
-    
 with aba2:
+
     st.markdown('# Resumo das Exportações')
     st.markdown('''A tabela abaixo representa o resumo das exportações dos vinhos de 2008 à 2022, ordenado por valor total em USD. Através dessa tabela, é possível notar que o Paraguai é o principal comprador de vinhos do Brasil, seguido de Russia, Estados Unidos, China e Reino Unido, considerando valores de Receita como critério de ordenação.
     ''')
@@ -339,7 +343,7 @@ with aba2:
     # **** [[FIM]] ABA 2 - ANÁLISE **** #    
         
     # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** # 
-           
+
     with aba3:
          st.markdown('# Plano de Ação / Próximos Passos')
 
