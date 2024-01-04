@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide')
+st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide', initial_sidebar_state="expanded", menu_items={ 'About': '# Fale comigo! :smile: \n Para ver mais sobre o projeto, acesse: [GitHub](https://github.com/camimq/techChallenge_exporta_vinhos). Este é um projeto acadêmico de pós-gradução do curso de Data Analytics da PosTech FIAP.'})
 
 # Formata números da aplicação
 def formata_numero(valor, prefixo = ''):
@@ -18,7 +18,7 @@ aba1, aba2, aba3 = st.tabs(['Histórico', 'Análise', 'Conclusão'])
 
 # **** [[INÍCIO]] ABA 1 - HISTÓRICO **** #
 with aba1:
-    st.image('img\_a2fbca62-86ef-42be-95de-3e1025f90104.jpg', caption='Imagem gerada pelo Copilot do Edge', use_column_width=False)
+    st.image('img\_a2fbca62-86ef-42be-95de-3e1025f90104.jpg', caption='Imagem gerada pelo Copilot do Edge', use_column_width=True)
     st.markdown('''
         # O Vinho no Brasil
                         
@@ -290,6 +290,7 @@ with aba2:
     fig_qtd_versus_valor.update_yaxes(title_text="Valor") 
 
     # --------------------------------------------------------------------------------------#
+
     with st.expander('##### :heavy_exclamation_mark: Disclaimer:\n **Fato importante Sobre Espanha e Reino Unido**'):
         st.markdown('''
             Abaixo, apresentaremos um conjunto de gráficos que representam a evolução das exportações em termos de volume e receita, para os 5 maiores compradores de vinho do Brasil, entre 2008 e 2022. Desde o início desta análise, consideramos **receita** como critério para definição de ranqueamento dos países que aparecem na análise. Desta forma, tratamos sempre Paraguai, Rússia, Estados Unidos e Reino Unido como principais parceiros do Brasil na compra de vinhos; os **Top 5 Importadores**.
