@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # configura propriedades da página: título, ícone, layout etc
-st.set_page_config(page_title='Home | TechChallenge FIAP :wine_glass:', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide', initial_sidebar_state="expanded", menu_items={ 'About': '# Fale comigo! :smile: \n Para ver mais sobre o projeto, acesse: [GitHub](https://github.com/camimq/techChallenge_exporta_vinhos). Este é um projeto acadêmico de pós-gradução do curso de Data Analytics da PosTech FIAP.'})
+st.set_page_config(page_title='Home | TechChallenge FIAP', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png', layout='wide', initial_sidebar_state="expanded", menu_items={ 'About': '# Fale comigo! :smile: \n Para ver mais sobre o projeto, acesse: [GitHub](https://github.com/camimq/techChallenge_exporta_vinhos). Este é um projeto acadêmico de pós-gradução do curso de Data Analytics da PosTech FIAP.'})
 
 # Formata números da aplicação
 def formata_numero(valor, prefixo = ''):
