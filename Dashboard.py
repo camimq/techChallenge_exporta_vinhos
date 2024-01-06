@@ -350,32 +350,48 @@ with aba2:
 # **** [[FIM]] ABA 2 - ANÁLISE **** #    
         
 # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #   
-   
+
+# Gráfico de Dispersão
+fig_correlacao=px.scatter(df_exportacao_consolidado,
+            x = 'Qtd. Total (L)',
+            y = 'Valor Total (US$)',
+            log_x = True,
+            log_y = True,
+            width=700,
+            opacity=0.7,
+            template='plotly_white',
+        )
+fig_correlacao.update_traces(marker=dict(size=8, line=dict(width=1)),selector=dict(mode='markers')) 
+fig_correlacao.update_layout(title='Quantidade Exportada x Valor Total (US$)')
+fig_correlacao.update_xaxes(title_text='Quantidade')
+fig_correlacao.update_yaxes(title_text='Valor')
+
 with aba3:
-    st.markdown('# Plano de Ação / Próximos Passos')
+    st.markdown('# Conclusão')
     col22, col23 = st.columns(2)
     with col22:
         st.markdown('''
             À partir das análises feitas até aqui, é possível definir algumas ações que podem ser tomadas para que o Brasil siga crescendo no mercado internacional de vinhos.
             
-            Os pontos abordados nos tópicos ao lado, servem como base para entender o nível de investimento e dimensionar parte do trabalho neste primeiro momento. O trabalho de desenvolver e consolidar um país no mercado internacional, nunca é feito de forma rápida ou com trabalho mensurável finito. Mas, uma vez que temos a dimensão do que existe e o espaço que é possível ocupar, entendendo o tamanho e a importância que este mercado pode terno papel de crescimento da economia brasileira, torna-se viável considerar as ações e o investimento para que este mercado continue crescendo e se profissionalizando.
-            
-            Desta forma, consideramos que investir em vinículas ou em produtores independentes no médio prazo, trará retornos relevantes para o país e, também, para os envolvidos neste mercado, sejam produtores, investidores e toda a cadeia produtiva direta e indireta.    
+            Mas antes, para tornar a informação ainda mais clara, utilizamos o gráfico ao lado para listar alguns pontos que precisam ser considerados:    
         ''')
 
     with col23:
-        st.markdown('#### :dart: Ações / Próximos Passos')
-        col24, col25 = st.columns(2)
-        with col24:    
-            with st.container(border=True):
-                st.markdown('''
-                - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
-                - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
+        st.markdown('')
+        st.plotly_chart(fig_correlacao, use_container_width=True)
+
+st.markdown('#### :dart: Ações / Próximos Passos')
+col24, col25 = st.columns(2)
+with col24:    
+    with st.container(border=True):
+        st.markdown('''
+            - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
+            - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
             ''')
-        with col25:
-            with st.container(border=True):
-                st.markdown('''
-                    - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
-                    - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
-                ''') 
+with col25:
+    with st.container(border=True):
+        st.markdown('''
+            - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
+            - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
+        ''') 
 # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #  
