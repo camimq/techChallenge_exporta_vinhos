@@ -373,7 +373,13 @@ with aba3:
         st.markdown('''
             À partir das análises feitas até aqui, é possível definir algumas ações que podem ser tomadas para que o Brasil siga crescendo no mercado internacional de vinhos.
             
-            Mas antes, para tornar a informação ainda mais clara, utilizamos o gráfico ao lado para listar alguns pontos que precisam ser considerados:    
+            Mas antes, para tornar a informação ainda mais clara, utilizamos o gráfico ao lado para listar alguns pontos que precisam ser considerados:
+            
+            - A correlação positiva entre quantidade e valor, é **positiva**. Isso significa que, aumentando a quantidade exportada, aumenta também o valor. Este aspecto é um ponto positivo porque indica que o Brasil consegue manter o valor do vinho exportado, mesmo com o aumento da quantidade. Implica também que, o aumento da exportação, não afetou a qualidade, que poderia ser um fator de risco para os negócios.
+            
+            - Este gráfico indica também que a relação entre quantidade e valor é forte / linear, ou seja, através desses dados, podemos apostar com certa segurança que o comportamento mencionado acima (a quantidade aumenta e o valor se mantém) tem fortes tendências a se manter.
+            
+            - Em se mantendo o crescimento da exportação, sem perda de receita, à partir dos pontos abordados nos próximos passos, temos a oportunidade de fortalecer o Brasil como marca forte em produção e exportação para que em momento oportuno, consigamos aumentar o valor da produção, trazendo ainda mais receita e desenvolvimento econômico.
         ''')
 
     with col23:
