@@ -4,37 +4,26 @@ st.set_page_config(page_title='O Projeto | TechChallenge FIAP :wine_glass:', pag
 
 st.image('https://www.freewebheaders.com/wp-content/gallery/drinks/awesome-wine-barrel-and-bottle-with-red-wine-glasses-web-header.jpg', caption='Foto retirada de Free Webheaders.com')
 
-st.title('O Projeto')
-st.markdown('''
-O objetivo do projeto, é entregar a análise de um conjunto de dados disponível no [site da Embrapa](https://www.cnpuv.embrapa.br/vitibrazil/index.php?opcao=opt_02) e que contém informações sobre a quantidade de uvas processadas, produção e comercialização de vinhos, sucos e derivados, proveninentes do Estado do Rio Grande do Sul e que, ainda de acordo com a **Embrapa**, representa mais de 90% da produção nacional.
-    
-Este projeto é parte integrante da finalização do primeiro módulo do curso de Pós-Graduação em Data Analytics da FIAP.
-    
-## Tarefa
-
-Criar um relatório inicial que será apresentado a um grupo de investidores e acionistas, explicando a quantidade de vinhos exportados e os fatores externos que podem vir a surgir e que interferem nas análises:
-
-1. Dados climáticos
-2. Dados demográficos
-3. Dados econômicos
-4. Dados de avaliações de vinhos     
-        
-Além disso, é esperado que seja construída uma tabela que contenha as seguintes informações:
+col20, col21 = st.columns(2)
+with col20:
+    with st.container(border=True):
+        st.title('O Projeto')
+        st.markdown('''
+            Este projeto é parte integrante da finalização do primeiro módulo do curso de Pós-Graduação em Data Analytics da FIAP.
             
-a. País de origem (Brasil)
-
-b. País de destino
-
-c. Quantidade em litros de vinho exportado
-
-d. Valores em dólar americano (US$)
-
-## Objetivo
-
-Dizer o montante de venda de exportação nos **últimos 15 anos**, separando a análise por país e trazendo quais as prospecções futuras e possíveis ações para uma melhoria nas exportações, através da construção de gráficos que passem a ideia central para que os acionistas e investidores possam seguir em frente com suas ações.         
-    
-''')
-
+            Foi desenvolvido por ***Camila Queiroz - RM351738***, aluna do curso de Pós-Gradução em Data Analytics da Pós-Tech FIAP / Alura.
+            
+            Neste projeto, estão sendo utilizadas técnicas e conceitos apresentados no primeiro módulo do curso, para o desenvolvimento de uma análise exploratória, que trará como resultado um plano de ação para investidores que desejam se envolver no mercado de exportação de vinhos e derivados, auxiliando o Brasil a se consolidar como um dos principais países exportadores do mundo.
+        ''')
+with col21:
+    with st.container(border=True):
+        st.title('Objetivo')
+        st.markdown('''
+            O objetivo do projeto é analisar um conjunto de dados disponível no site da [Embrapa](https://www.cnpuv.embrapa.br/vitibrazil/index.php?opcao=opt_02), que contém informações sobre a produção e comercialização de uvas, vinhos, sucos e derivados no Estado do Rio Grande do Sul. Essa região, segundo a **Embrapa**, representa mais de 90% da produção nacional.
+            
+            O montante de exportação dos ***últimos 15 anos (2008 à 2022)** será avaliado, através das técnicas e conceitos apresentados durante o primeiro módulo do curso, de forma que, ao fim desta análise, tenhamos um panorama geral e um plano de ação para que o Brasil siga se consolidando como um dos principais atores no mercado de exportação de vinhos e derivados.
+        ''')  
+st.markdown('')
 st.write('---')
 st.write('#### Quem fez :technologist:')
 col3, col4 = st.columns(2)
