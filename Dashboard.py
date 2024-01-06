@@ -37,6 +37,7 @@ with aba1:
             Hoje o Brasil tem forte presença no mercado internacional de vinhos tendo regiões produtivas não só no Rio Grande do Sul como também em Santa Catarina, Paraná, São Paulo, Minas Gerais, Foiás, Bahia, Pernambuco e Ceará.
         ''')
     with col21:
+        st.markdown('')
         st.markdown('''
         ### O Brasil no mapa global da produção de vinhos
                 
