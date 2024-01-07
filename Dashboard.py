@@ -346,7 +346,7 @@ with aba2:
             Além disso, influências políticas também devem ser consideradas. Na América do Sul, organizações como BRICS e Mercosul, tem papel definitivo na relação comercial entre os países participantes, influenciando positivamente e de forma direta os resultados alcançados afim de fortalecer a economia da região e trazer maior visibilidade para o mercado internacional (com destaque para os países fora do eixo LATAM).
         ''')
         st.markdown('### Influências na produção do vinho que impactam diretamente na exportação')
-    st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')
+
 # **** [[FIM]] ABA 2 - ANÁLISE **** #    
         
 # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #   
@@ -386,18 +386,19 @@ with aba3:
         st.markdown('')
         st.plotly_chart(fig_correlacao, use_container_width=True)
 
-st.markdown('#### :dart: Ações / Próximos Passos')
-col24, col25 = st.columns(2)
-with col24:    
-    with st.container(border=True):
-        st.markdown('''
-            - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
-            - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
-            ''')
-with col25:
-    with st.container(border=True):
-        st.markdown('''
-            - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
-            - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
-        ''') 
-# **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #  
+    st.markdown('#### :dart: Ações / Próximos Passos')
+    col24, col25 = st.columns(2)
+    with col24:    
+        with st.container(border=True):
+            st.markdown('''
+                - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
+                - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
+                ''')
+    with col25:
+        with st.container(border=True):
+            st.markdown('''
+                - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
+                - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
+            ''') 
+    # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #
+st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')  
