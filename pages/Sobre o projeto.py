@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title='Sobre o Projeto | TechChallenge FIAP', page_icon='https://cdn-icons-png.flaticon.com/512/763/763048.png')
 
-st.image('img\header.jpg', caption='Imagem criada pelo Copilot do Edge')
+st.image('https://github.com/camimq/techChallenge_exporta_vinhos/blob/main/img/header.jpg', caption='Imagem criada pelo Copilot do Edge')
 
 with st.sidebar:     
     st.markdown(':sweat_smile: Feito por **Camila Queiroz - RM 351738**')
