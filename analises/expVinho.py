@@ -115,16 +115,9 @@ fig.update_xaxes(title_text="Ano")
 fig.update_yaxes(title_text="Valor")
 fig.show()
 
-# %% [markdown]
-# - As quantidades exportadas para o Paraguai, são menores, contudo, a receita é superior, se comparado com a Russia, qua acontece exatamente o oposto. Porque isso ocorre?
-# - Os demais países mostrados, estão proporcionais quanto à quantidade x custo.
-# - **Aparentemente** é mais vantagjoso exportar para o Paraguai: menor quantidade ++ dinheiro
-
-# %%
 df_exportacao_consolidado.info()
 
-# %%
-# total (L) exporado por país - top 10
+# Gráfico Total (L) Exportado Por País - Top 10
 grafico_quantidade = px.bar(df_exportacao_consolidado.head(10), 
                                 x='País de destino', 
                                 y='Qtd. Total (L)', 
@@ -135,8 +128,7 @@ grafico_quantidade = px.bar(df_exportacao_consolidado.head(10),
 
 grafico_quantidade.show()
 
-# %%
-# total exportado US$ por país - top 10
+# Total ($) Exportado US$ Por País - Top 10
 grafico_valor = px.bar(df_exportacao_consolidado.head(10),
                         x='País de destino',
                         y='Valor Total (US$)',
@@ -147,23 +139,19 @@ grafico_valor = px.bar(df_exportacao_consolidado.head(10),
 
 grafico_valor.show()
 
-# %%
 df_exportacao_consolidado.describe()
 
-# %%
-# cria dataframe desenvolvimento do gráfico de linha
+# Cria dataframe para criação de gráfico de linha de evolução
 dados_grafico_linha_qtd = exportacao_por_pais.set_index('País')
 dados_grafico_linha_qtd = dados_grafico_linha_qtd.drop('Qtd. Total (L)', axis=1)
 dados_grafico_linha_qtd.head()
 
-# %%
-# transpondo tabela
+# Transpondo tabela
 dado_qtd=dados_grafico_linha_qtd.head()
 dado_qtd = dado_qtd.T
 dado_qtd.head()
 
-# %%
-# cria gráfio de evolução de exportação para Russia
+# Cria gráfio de evolução de exportação para Russia
 fig = px.line(dado_qtd,
                 x=dado_qtd.index,
                 y='Rússia',
@@ -175,8 +163,7 @@ fig = px.line(dado_qtd,
 
 fig.show()
 
-# %%
-# cria gráfio de evolução de exportação Paraguai
+# Cria gráfio de evolução de exportação Paraguai
 fig = px.line(dado_qtd, x=dado_qtd.index,
                 y='Paraguai',
                 markers=True,
@@ -187,8 +174,7 @@ fig = px.line(dado_qtd, x=dado_qtd.index,
 
 fig.show()
 
-# %%
-# cria gráfio de evolução de exportação Estados Unidos
+# Cria gráfio de evolução de exportação Estados Unidos
 fig = px.line(dado_qtd,
                 x=dado_qtd.index,
                 y='Estados Unidos',
@@ -200,8 +186,7 @@ fig = px.line(dado_qtd,
 
 fig.show()
 
-# %%
-# evolução de exportação para os 5 maiores compradores
+# Evolução de exportação para os 5 maiores compradores
 fig = px.line(dado_qtd,
                 x=dado_qtd.index,
                 y=dado_qtd.columns, 
@@ -213,14 +198,12 @@ fig = px.line(dado_qtd,
 
 fig.show()
 
-# %%
-# cria dataframe desenvolvimento do gráfico de linha - para valores
+# Cria dataframe desenvolvimento do gráfico de linha - para valores
 dados_grafico_linha_valor = valor_exportacao_por_pais.set_index('País')
 dados_grafico_linha_valor = dados_grafico_linha_valor.drop('Valor Total (US$)', axis=1)
 dados_grafico_linha_valor.head()
 
-# %%
-# atualiza os nomes de colunas
+# Atualiza os nomes de colunas
 dados_grafico_linha_valor.rename(columns={'2008.1': '2008'}, inplace=True)
 dados_grafico_linha_valor.rename(columns={'2009.1': '2009'}, inplace=True)
 dados_grafico_linha_valor.rename(columns={'2010.1': '2010'}, inplace=True)
@@ -239,14 +222,12 @@ dados_grafico_linha_valor.rename(columns={'2022.1': '2022'}, inplace=True)
 
 dados_grafico_linha_valor.head()
 
-# %%
-# transpondo tabela
+# Transpondo tabela
 dado_valor = dados_grafico_linha_valor.head()
 dado_valor = dado_valor.T
 dado_valor.head()
 
-# %%
-# evolução de valores paraguai
+# Evolução de valores paraguai
 fig = px.line(dado_valor, 
                 x=dado_valor.index, 
                 y='Paraguai', 
@@ -257,8 +238,7 @@ fig = px.line(dado_valor,
 
 fig.show()
 
-# %%
-# evolução de valores estados unidos
+# Evolução de valores estados unidos
 fig = px.line(dado_valor, 
                 x=dado_valor.index, 
                 y='Estados Unidos', 
@@ -270,8 +250,7 @@ fig = px.line(dado_valor,
 
 fig.show()
 
-# %%
-# evolução de valores para o top 5 compradores
+# Evolução de valores para o top 5 compradores
 fig = px.line(dado_valor,
                 x=dado_valor.index, 
                 y= dado_valor.columns, 
@@ -283,13 +262,11 @@ fig = px.line(dado_valor,
 
 fig.show()
 
-# %%
-# cria df com valores de quantidade e valor por país
+# Cria dataframe com valores de quantidade e valor por país
 dados_valores_totais_pais = df_exportacao_consolidado.drop(columns=('País de Origem'))
 dados_valores_totais_pais.head()
 
-# %%
-#  cria df com quantidade exportada total por ano
+# Cria dataframe com quantidade exportada total por ano
 dados_qtd_total_anual = dados_grafico_linha_qtd.sum()
 dados_qtd_total_anual = pd.DataFrame(dados_qtd_total_anual)
 dados_qtd_total_anual.head()
@@ -297,9 +274,7 @@ dados1_qtd_total_anual = dados_qtd_total_anual.reset_index()
 dados1_qtd_total_anual.index.rename('novoIndex', inplace=True)
 dados1_qtd_total_anual.head()
 
-
-# %%
-#  cria df com quantidade exportada total por ano
+# Cria dataframe com quantidade exportada total por ano
 dados_valor_total_anual = dados_grafico_linha_valor.sum()
 dados_valor_total_anual = pd.DataFrame(dados_valor_total_anual)
 dados_valor_total_anual.head()
@@ -307,23 +282,19 @@ dados2_valor_total_anual = dados_valor_total_anual.reset_index()
 dados2_valor_total_anual.index.rename('novoIndex', inplace=True)
 dados2_valor_total_anual.head()
 
-
-# %%
-# cria dataframe com valores totais de exportação por ano(quantidade e valores)
+# Cria dataframe com valores totais de exportação por ano(quantidade e valores)
 dados_totais_qtd_valor = pd.merge(dados1_qtd_total_anual, dados2_valor_total_anual, on='novoIndex', how='left')
 dados_totais_qtd_valor = dados_totais_qtd_valor.drop('index_y', axis=1)
 dados_totais_qtd_valor.head()
 
-# %%
-# organizando novo DataFrame para plotar os gráficos
+# Organizando novo dataframe para plotar os gráficos
 dados_totais_qtd_valor.rename(columns={'index_x' : 'Ano', '0_x' : 'Quantidade', '0_y' : 'Valor'}, inplace=True)
 dados_totais_qtd_valor = dados_totais_qtd_valor
 dados_totais_qtd_valor = dados_totais_qtd_valor.set_index('Ano')
 
 dados_totais_qtd_valor
 
-# %%
-# evolução da quantidade e valor de exportação no período de 2008 à 2022
+# Evolução da quantidade e valor de exportação no período de 2008 à 2022
 fig = px.line(dados_totais_qtd_valor,
                 x=dados_totais_qtd_valor.index,
                 y=dados_totais_qtd_valor.columns,
@@ -334,8 +305,7 @@ fig = px.line(dados_totais_qtd_valor,
 
 fig.show()
 
-# %%
-# evolução dos valores de exportação no período de 2008 à 2022
+# Evolução dos valores de exportação no período de 2008 à 2022
 fig = px.bar(dados_totais_qtd_valor,
                 y=dados_totais_qtd_valor['Valor'], template='plotly_white',
                 title= 'Valores de exportação ano a ano',
@@ -344,11 +314,9 @@ fig = px.bar(dados_totais_qtd_valor,
 
 fig.show()
 
-# %%
 dados_totais_qtd_valor
 
-# %%
-#
+# Evolução da quantidade de exportação no período de 2008 à 2022
 fig = px.bar(dados_totais_qtd_valor,
                 x = dados_totais_qtd_valor.index,
                 y = dados_totais_qtd_valor.columns,
@@ -361,7 +329,7 @@ fig.update_yaxes(title_text='Valor')
 
 fig.show()
 
-# %%
+# Evolução da quantidade de exportação no período de 2008 à 2022
 fig=px.scatter(df_exportacao_consolidado,
                 x='Qtd. Total (L)',
                 y='Valor Total (US$)',
@@ -381,9 +349,8 @@ fig.update_yaxes(title_text='Valor')
 fig.show()
 
 
-# exportando DataFrames para utilização no Streamlit
+# Exportando DataFrames para utilização no Streamlit
 
-#df_exportacao_consolidado.to_csv('bases/df_exportacao_consolidado.csv')
+## df_exportacao_consolidado.to_csv('bases/df_exportacao_consolidado.csv')
 
-df_exportacao_consolidado
-# %%
+## df_exportacao_consolidado
