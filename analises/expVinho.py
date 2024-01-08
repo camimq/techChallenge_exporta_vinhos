@@ -3,60 +3,42 @@
 import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
-import seaborn as sns
 import nbformat
 
-
-# %%
+# importando dados do dataframe original
 df_exportacao = pd.read_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/ExpVinho.csv', sep=';')
 df_exportacao
 
-# %% [markdown]
-# **Ponto de Atenção**
-# Notei que, ao importar a tabela de de exportação, os anos estão duplicados. Ao comparar a tabela acima com a tabela disponível no site da Embrapa, notei que, todos os valores que finalizam com `.1`, equivalem ao **valor monetário**, enquanto que todos os números que não finalizam com `.1`, equivalem a **quantidade total de exportação**.
-# 
-# **Exemplo:**
-# 
-# **Linha 2 - Alemanha**
-# - **1972** == 4.168 litros exportados
-# - **1972.1** == $ 2.630,00
-# 
-# Essa lógica se repete em todo o DataFrame.
-
-# %%
-# definindo quais informações do Dataframe serão utilizadas
-# serão utilizadas para a análise, as colunas de 2007 a 2022, além de dados de país e ID
 df_exportacao.shape
 
-
-# %%
 # visualizando as colunas de ano que serão utilizadas
 df_exportacao.columns[-30:]
 
-# %%
+# **Ponto de Atenção**
+# Notei que, ao importar a tabela de de exportação, os anos estão duplicados. Ao comparar a tabela acima com a tabela disponível no site da Embrapa, notei que, todos os valores que finalizam com .1, equivalem ao valor monetário, enquanto que todos os números que NÃO finalizam com `.1`, equivalem a quantidade.
+
+# Exemplo: Linha 2 - Alemanha | 1972 == 4.168 litros exportados | 1972.1 == $ 2.630,00. Essa lógica se repete em todo o DataFrame.
+
+# definindo quais informações do Dataframe serão utilizadas
+# serão utilizadas para a análise, as colunas de 2008 a 2022, além de dados de país e ID
 df_exportacao = df_exportacao[['Id', 'País', '2008', '2008.1', '2009', '2009.1', '2010', '2010.1', '2011', '2011.1',
        '2012', '2012.1', '2013', '2013.1', '2014', '2014.1', '2015', '2015.1',
        '2016', '2016.1', '2017', '2017.1', '2018', '2018.1', '2019', '2019.1',
        '2020', '2020.1', '2021', '2021.1', '2022', '2022.1']]
 df_exportacao
 
-# %%
+# deletando coluna ID
 df_exportacao.drop('Id', axis=1, inplace=True)
 
-# %%
+# exibindo o dataframe alterado
 df_exportacao
 
-
-# %% [markdown]
-# ## Criação de Tabela de Quantidade Total e Tabela de Valor Total
-
-# %%
-# cria tabela de exportação por país
+# Criação de Tabela de Quantidade Total e Tabela de Valor Total
+## Cria tabela de exportação por país
 exportacao_por_pais = df_exportacao[['País', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022']]
 exportacao_por_pais
 
-# %%
-# cria coluna de soma total para quantidade de exportação por
+## cria coluna de soma total para quantidade de exportação por
 exportacao_por_pais['Qtd. Total (L)'] = exportacao_por_pais ['2008']+exportacao_por_pais ['2009']\
 +exportacao_por_pais ['2010']+exportacao_por_pais ['2011']+exportacao_por_pais ['2012']\
 +exportacao_por_pais ['2013']+exportacao_por_pais ['2014']+exportacao_por_pais ['2015']\
@@ -66,15 +48,13 @@ exportacao_por_pais['Qtd. Total (L)'] = exportacao_por_pais ['2008']+exportacao_
 
 exportacao_por_pais
 
-# %%
-## exclui linhas de total com valor == 0
+# Exclui linhas de total com valor == 0
 exportacao_por_pais.drop(exportacao_por_pais.loc[exportacao_por_pais['Qtd. Total (L)']==0].index, inplace=True)
 
-# ordenando valor da maior quantidade para a menor
+# Ordenando valor da maior quantidade para a menor
 exportacao_por_pais = exportacao_por_pais.sort_values(by='Qtd. Total (L)', ascending=False)
 exportacao_por_pais.head()
 
-# %%
 # cria tabela de total de exportação por país
 valor_exportacao_por_pais = df_exportacao[['País', '2008.1', '2009.1', '2010.1', '2011.1', '2012.1', '2013.1', '2014.1', '2015.1', '2016.1', '2017.1', '2018.1', '2019.1', '2020.1', '2021.1', '2022.1']]
 valor_exportacao_por_pais
