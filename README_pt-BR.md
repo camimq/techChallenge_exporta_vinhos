@@ -1,5 +1,5 @@
 <div align='center'>
-<img src='img\Tech Challenge  FIAP PÓS TECH.png' alt='Imagem do Header, gerado pelo Copilot do Edge'>
+<img src='img\headerPTbr.png' alt='Imagem do Header, gerado pelo Copilot do Edge'>
 </div>
 
 [🔃 (go-to 🇺🇸) English Version](https://github.com/camimq/imigracao_canada/blob/main/README.md)
@@ -25,11 +25,11 @@ Antes de começar, você vai precisar ter instalado as seguintes dependências n
 
 Após clonar este repositório, acesse a pasta do projeto e siga os passos abaixo:
 
-> No Terminal | 1. - aciona o ambiente virtual
+> No Terminal | 1. aciona o ambiente virtual
 
 `.\venv/Scripts/activate`
 
-> No Terminal | 2. - roda o arquivo principal do Streamlit
+> No Terminal | 2. roda o arquivo principal do Streamlit
 
 `streamlit run Dashboard.py`
 
