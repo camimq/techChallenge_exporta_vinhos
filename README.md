@@ -42,10 +42,10 @@ However, it may be that at the moment you click on this link, the application is
 <div align='center'>
  📺 The Application Video
 
-  [![📺 The Application Video](https://img.youtube.com/vi/uAwwCl6dUuE/0.jpg)](https://www.youtube.com/watch?v=YuAwwCl6dUuE)
+  [![📺 The Application Video](https://img.youtube.com/vi/uAwwCl6dUuE/0.jpg)](https://youtu.be/uAwwCl6dUuE)
 </div>
 
-
+https://youtu.be/uAwwCl6dUuE
 ## ⚒ Technologies
 
 The technologies below were used in the development of this project:
