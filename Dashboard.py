@@ -55,8 +55,6 @@ with aba1:
         O Brasil hoje conta com 1100 vinícolas. Delas, 50 mil famílias vivem da produção de uvas e vinhos e são os responsáveis diretos por tornar o Brasil o 15º maior produtor de vinhos do mundo. De acordo com a [última medição](https://g1.globo.com/pr/parana/especial-publicitario/porto-a-porto/guia-do-vinho-e-da-gastronomia/noticia/2023/10/03/e-o-maior-produtor-mundial-de-vinho-e.ghtml), o Brasil produziu 3,2 milhões de litros de vinho, um crescimento de 1,2% em relação a medição anterior.
 
         De acordo com os dados de 2022, a produção nacional aumentou 14% em relação às últimas cinco safras. Após oito anos de encolhimento, o setor voltou a crescer e hoje, produtores de vinho e toda a cadeia produtiva do setor, estão otimistas com o que o futuro reserva.
-                    
-        [:arrow_up_small:[Topo da página]](#o-vinho-no-brasil)
     ''')
 # **** [[FIM]] ABA 1 - HISTÓRICO **** #
  
@@ -372,7 +370,6 @@ with aba2:
         
         Dado os aspectos de mudança climática que vem sendo propagado nos últimos anos, com fatos mais evidentes nos últimos anos, é possível afirmar que o Brasil não passará ileso por essas mudanças. Contudo, o reconhecido profissionalismos dos produtores nacionais, aliado à tecnologia e busca constante por inovação, faz com que o Brasil se mantenha como um dos principas players no mercado mundial de vinho e que, neste novo contexto global, possui grandes chances de crescer e se destacar ainda mais.     
     ''')
-    st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')
 
 # **** [[FIM]] ABA 2 - ANÁLISE **** #    
         
@@ -427,6 +424,5 @@ with aba3:
                 - Entre os TOP 5 Importadores, definir como prioridade para Estados Unidos e China, o aumento de venda de vinhos espumantes, visto que este é o principal interesse destes países em relação aos produtos que oferecemos.
                 - Para o Reino Unido, seguir investindo em ações que fortaleçam a presença do Brasil no International Wine Challenge (IWC), que é o maior concurso de vinhos do mundo e que, desde 2018, tem premiado vinhos brasileiros. Se para este mercado, esse tipo de premiação valida a qualidade e chancela a entrada dos produtos nacionais neste mercado, é importante que o Brasil siga fortalecendo sua presença não só neste concurdo como também em todos os eventos que circulem este, para que ganhemos visibilidade e espaço.
             ''') 
-    st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')
     # **** [[INÍCIO]] ABA 3 - PLANO DE AÇÃO / PRÓXIMOS PASSOS **** #
   
