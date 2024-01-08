@@ -23,7 +23,7 @@ with aba1:
     with st.sidebar:     
         st.markdown(':sweat_smile: Feito por **Camila Queiroz - RM 351738**')
 
-    st.image('https://github.com/camimq/techChallenge_exporta_vinhos/blob/main/img/headerDash.jpg', caption='Imagem gerada pelo Copilot do Edge', use_column_width=True)
+    st.image('img/headerDash.jpg', caption='Imagem gerada pelo Copilot do Edge', use_column_width=True)
     col20, col21 = st.columns(2)
  
     with col20: 
