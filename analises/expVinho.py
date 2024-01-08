@@ -350,6 +350,7 @@ fig.show()
 
 
 # Exportando DataFrames para utilização no Streamlit
+## Este código foi exportado de um arquivo do mesmo nome com extensão .ipynb (Notebook Jupyter). Tomei essa decisão, de manter o código no formato .py para que fosse uma dependência um pouco mais leve. Por ter sido feito no VSCode, mesmo não utilizando o notebook, é possível rodar o código em uma janela dinâmia que tem o mesmo efeito do notebook comum.
 
 ## df_exportacao_consolidado.to_csv('bases/df_exportacao_consolidado.csv')
 ## df_exportacao_consolidado
