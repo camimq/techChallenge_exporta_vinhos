@@ -55,12 +55,10 @@ exportacao_por_pais.drop(exportacao_por_pais.loc[exportacao_por_pais['Qtd. Total
 exportacao_por_pais = exportacao_por_pais.sort_values(by='Qtd. Total (L)', ascending=False)
 exportacao_por_pais.head()
 
-# cria tabela de total de exportação por país
+# Cria tabela de total de exportação por país
 valor_exportacao_por_pais = df_exportacao[['País', '2008.1', '2009.1', '2010.1', '2011.1', '2012.1', '2013.1', '2014.1', '2015.1', '2016.1', '2017.1', '2018.1', '2019.1', '2020.1', '2021.1', '2022.1']]
 valor_exportacao_por_pais
-
-# %%
-# cria coluna de soma MONETÁRIA total de exportação por país
+# Cria coluna de soma MONETÁRIA total de exportação por país
 valor_exportacao_por_pais['Valor Total (US$)'] = valor_exportacao_por_pais ['2008.1']+valor_exportacao_por_pais ['2009.1']\
 +valor_exportacao_por_pais ['2010.1']+valor_exportacao_por_pais ['2011.1']+valor_exportacao_por_pais ['2012.1']\
 +valor_exportacao_por_pais ['2013.1']+valor_exportacao_por_pais ['2014.1']+valor_exportacao_por_pais ['2015.1']\
@@ -70,61 +68,47 @@ valor_exportacao_por_pais['Valor Total (US$)'] = valor_exportacao_por_pais ['200
 
 valor_exportacao_por_pais
 
-# %%
-## exclui linhas com valor monetário total == 0
+# Exclui linhas com valor monetário total == 0
 valor_exportacao_por_pais.drop(valor_exportacao_por_pais.loc[valor_exportacao_por_pais['Valor Total (US$)']==0].index, inplace=True)
 
-# ordenando valor do maior valor para o menor
+# Ordenando valor do maior valor para o menor
 valor_exportacao_por_pais = valor_exportacao_por_pais.sort_values(by='Valor Total (US$)', ascending=False)
 valor_exportacao_por_pais.head()
 
-# %% [markdown]
-# ## Unificando DataFrames
-
-# %%
-# utilizando merge para juntar os dois DataFrames criados
+# Unificando DataFrames
+# Utilizando merge para juntar os dois DataFrames criados
 df_exportacao_consolidado = pd.merge(exportacao_por_pais, valor_exportacao_por_pais, on='País', how='left')
 df_exportacao_consolidado.head()
 
-# %%
 df_exportacao_consolidado
 
-# %%
 df_exportacao_consolidado.info()
 
-# %%
 df_exportacao_consolidado = df_exportacao_consolidado[['País', 'Qtd. Total (L)', 'Valor Total (US$)']]
-df_exportacao_consolidado.head()
 
-# %%
-# inclui coluna de País de Origem
+df_exportacao_consolidado.head()
+# Inclui coluna de País de Origem
 df_exportacao_consolidado['País de Origem'] = df_exportacao_consolidado.index
 df_exportacao_consolidado.head()
 
-# %%
-# ordena valor por total em US$
+# Ordena valor por total em US$
 df_exportacao_consolidado = df_exportacao_consolidado.sort_values(by='Valor Total (US$)', ascending=False)
 df_exportacao_consolidado.head()
 
-# %%
-# alterna nome da coluna de País para País de Origem
+# Alterna nome da coluna de País para País de Origem
 df_exportacao_consolidado.rename(columns={'País': 'País de destino'}, inplace=True)
 
-# %%
 df_exportacao_consolidado.head()
 
-# %% [markdown]
-# ## Construindo Gráficos
+# Construindo Gráficos
+## Gráfico de barras
 
-# %% [markdown]
-# ### Gráfico de barras
-
-# %%
+### Cria dataframe para plotar gráfico de barras
 dados_grafico_barras = df_exportacao_consolidado.head()
 dados_grafico_barras = dados_grafico_barras.set_index('País de destino')
 dados_grafico_barras=dados_grafico_barras.drop(columns=('País de Origem'))
 
-# %%
+# Plotando gráfico de barras
 fig = px.bar(dados_grafico_barras, x=dados_grafico_barras.index, y=dados_grafico_barras.columns, barmode='group', template='plotly_white')
 fig.update_layout(title='Quantidade e valor total exportado (2008 a 2022)', width = 700)
 fig.update_xaxes(title_text="Ano")
