@@ -2,7 +2,7 @@
 <img src='img\headerPTbr.png' alt='Imagem do Header, gerado pelo Copilot do Edge'>
 </div>
 
-[🔃 (go-to 🇺🇸) English Version](https://github.com/camimq/imigracao_canada/blob/main/README.md)
+[🔃 (go-to 🇺🇸) English Version](https://github.com/camimq/techChallenge_exporta_vinhos/blob/main/README.md)
 
 ## 📝 Descrição do Projeto ![Badge](https://img.shields.io/static/v1?label=license&message=MIT&color=0677B9)
 Este é um projeto, no formato de desafio, para a disciplina de **Data Analysis and Exploration** do curso de Pós-Graduação em Data Analytics da [FIAP](https://www.fiap.com.br/). Neste desafio, foi proposto que utilizássemos os dados de um dataset da Embrapa para fazer análises e responder algumas perguntas. Essas respostas deveriam ser apresentadas pensando em um grupo de investidores que estão interessados em investir no mercado de vinhos do Brasil.
