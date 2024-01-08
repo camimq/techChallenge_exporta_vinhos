@@ -31,6 +31,21 @@ After clone this repository, access the project´s folder and follow the steps b
 
 `streamlit run Dashboard.py`
 
+## 📺 Showing the application
+
+As it is an application made in Streamlit, the display is don in the browser itself. To access, just click on the link below:
+
+[🌍 Wine Export](https://techchallengeexportavinhosfiap.streamlit.app/)
+
+However, it may be that at the moment you click on this link, the application is no longer available. In this case, you can run the application locally by following the steps above. Or, if you prefer, you can watch the video below, where I show the application running on my computer:
+
+<div align='center'>
+ 📺 The Application Video
+
+  [![📺 The Application Video](https://img.youtube.com/vi/uAwwCl6dUuE/0.jpg)](https://www.youtube.com/watch?v=YuAwwCl6dUuE)
+</div>
+
+
 ## ⚒ Technologies
 
 The technologies below were used in the development of this project:

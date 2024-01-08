@@ -33,6 +33,20 @@ Após clonar este repositório, acesse a pasta do projeto e siga os passos abaix
 
 `streamlit run Dashboard.py`
 
+## 📺 Exibição da Aplicação
+
+Por ser uma aplicação feita no Streamlit, a exibição é feita no próprio navegador. Para acessar, basta clicar no link abaixo:
+
+[🌍 Exportação de Vinhos](https://techchallengeexportavinhosfiap.streamlit.app/)
+
+Mas, pode ser que no momento que você clicar nesse _link_, a aplicação não esteja mais no ar. Nesse caso, você pode rodar a aplicação localmente, seguindo os passos acima. Ou, se preferir, pode assistir ao vídeo abaixo, onde eu mostro a aplicação rodando no meu computador:
+
+<div align='center'>
+ 📺 Vídeo da Aplicação
+
+  [![📺 Vídeo da Aplicação](https://img.youtube.com/vi/uAwwCl6dUuE/0.jpg)](https://www.youtube.com/watch?v=YuAwwCl6dUuE)
+</div>
+
 ## ⚒ Tecnologias
 
 As tecnologias abaixo foram utilizadas no desenvolvimento deste projeto:
