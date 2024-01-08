@@ -345,7 +345,33 @@ with aba2:
                     
             Além disso, influências políticas também devem ser consideradas. Na América do Sul, organizações como BRICS e Mercosul, tem papel definitivo na relação comercial entre os países participantes, influenciando positivamente e de forma direta os resultados alcançados afim de fortalecer a economia da região e trazer maior visibilidade para o mercado internacional (com destaque para os países fora do eixo LATAM).
         ''')
-        st.markdown('### Influências na produção do vinho que impactam diretamente na exportação')
+        st.markdown('### Aspectos que impactam na produção e exportação de vinhos')
+        st.markdown('''
+            Toda vez que falamos de desenvolver negócios, precisamos entender o contexto em que o negócio está inserido, para que possamos mapear os aspectos que podem impactar (positiva ou negativamente) os resultados do negócio.
+            
+            Na cultura do vinho, existe um conceito chamado _terroir_.  Ele explica como um conjunto de fatores pode influenciar na produção de um vinho. Entre os diversos aspectos que compõeem o _terroir_, está também o clima.       
+        ''')
+    st.markdown('''
+        > Além do clima, o _terroir_ também é composto por: 
+        > - Topografia
+        > - Geologia
+        > - Pedologia
+        > - Drenagem
+        > - Clima e microclima
+        > - Castas
+        > - Intervenção humana
+        > - Cultura, história e tradição
+              
+        #### O clima x Produção de vinhos
+        
+        A produção de vinho depende de 5 aspectos climáticos que precisam ser considerados na produção: temperatura, luz solar, chuvas, amplitude térmica e altitude. Cada um desses aspectos vai interferir diretamente em uma característica da uva que, por consequência, interfere no tipo e qualidade de vinho que será produzido.
+        
+        Segundo o [Canal Rural](https://www.canalrural.com.br/agricultura/clima-adverso-reduz-producao-de-vinhos-e-espumantes-no-brasil/), o clima adverso como consequência do desequilíbrio global do meio ambiente, impactou - diretamente - na queda (em 30%) de produção de vinhos e espumantes no Brasil, só em 2021.  O nosso país tem um clima tropical, com clima quente e úmido que, também não favorecem a produção de vinhos.
+        
+        Por isso, os produtores nacionais, acabam apostando na tecnologia para manter o crescimento da produção, além de se manter sempre à frente no que há de mais moderno na viticultura.
+        
+        Dado os aspectos de mudança climática que vem sendo propagado nos últimos anos, com fatos mais evidentes nos últimos anos, é possível afirmar que o Brasil não passará ileso por essas mudanças. Contudo, o reconhecido profissionalismos dos produtores nacionais, aliado à tecnologia e busca constante por inovação, faz com que o Brasil se mantenha como um dos principas players no mercado mundial de vinho e que, neste novo contexto global, possui grandes chances de crescer e se destacar ainda mais.     
+    ''')
     st.markdown('[:arrow_up_small:[Topo da página]](#e0c02a73)')
 
 # **** [[FIM]] ABA 2 - ANÁLISE **** #    
