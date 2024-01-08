@@ -9,15 +9,6 @@ Este é um projeto, no formato de desafio, para a disciplina de **Data Analysis 
 
 Portanto, teoricamente, toda a análise técnica deve ser "traduzida" para uma linguagem mais simples e intuitiva,dando diretivas de ações / próximos passos, baseadas nas conclusões retiradas dos dados.
 
----
-
-<p align="center">
- <a href="#pre-requisitos">Pré-requisitos</a> • 
- <a href="#como-usar">Como rodar a aplicação</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
- <a href="#autor">Autor</a>
-</p>
-
 ## ✔ Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado as seguintes dependências no seu ambiente:
