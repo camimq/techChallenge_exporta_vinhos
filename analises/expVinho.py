@@ -352,5 +352,37 @@ fig.show()
 # Exportando DataFrames para utilização no Streamlit
 
 ## df_exportacao_consolidado.to_csv('bases/df_exportacao_consolidado.csv')
-
 ## df_exportacao_consolidado
+
+## dado_valor.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dadoValor.csv')
+## dado_valor
+
+## dado_qtd.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dado_qtd.csv')
+## dado_qtd
+
+## dados1_qtd_total_anual.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dados1QtdTotalAnual.csv')
+## dados1_qtd_total_anual
+
+## dados2_valor_total_anual.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dados2ValorTotalAnual.csv')
+## dados2_valor_total_anual
+
+## dados_graficos_barras.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dadosGraficoBarras.csv')
+## dados_graficos_barras
+
+## dados_graficos_linha_qtd.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dadosGraficoLinhaQtd.csv')
+## dados_graficos_linha_qtd
+
+## dados_grafico_linha_valor.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dadosGraficoLinhaValor.csv')
+## dados_grafico_linha_valor
+
+## dados_totais_qtd_valor.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dadosTotaisQtdValor.csv')
+## dados_totais_qtd_valor
+
+## dados_valores_totais_pais.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/dadosValoresTotaisPais.csv')
+## dados_valores_totais_pais
+
+## exportacao_por_pais.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/exportacaoPorPais.csv')
+## exportacao_por_pais
+
+## valor_exportacao_por_pais.to_csv('https://raw.githubusercontent.com/camimq/techChallenge_exporta_vinhos/main/bases/valorExportacaoPorPais.csv')
+## valor_exportacao_por_pais
