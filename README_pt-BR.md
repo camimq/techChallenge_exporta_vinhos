@@ -55,4 +55,3 @@ As tecnologias abaixo foram utilizadas no desenvolvimento deste projeto:
 Feito com ❤️ por Cami Queiroz 🎙 Vamos Falar!
 
 ![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/camilaqueiroz)  ![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white&https://medium.com/@camimq/)
-
