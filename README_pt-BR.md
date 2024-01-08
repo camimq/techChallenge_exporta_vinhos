@@ -44,7 +44,7 @@ Mas, pode ser que no momento que você clicar nesse _link_, a aplicação não e
 <div align='center'>
  📺 Vídeo da Aplicação
 
-  [![📺 Vídeo da Aplicação](https://img.youtube.com/vi/uAwwCl6dUuE/0.jpg)](https://www.youtube.com/watch?v=YuAwwCl6dUuE)
+  [![📺 Vídeo da Aplicação](https://img.youtube.com/vi/uAwwCl6dUuE/0.jpg)](https://www.youtube.com/watch?v=uAwwCl6dUuE)
 </div>
 
 ## ⚒ Tecnologias
