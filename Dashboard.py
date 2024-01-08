@@ -331,7 +331,7 @@ with aba2:
             A Russia traz em 4 anos (2008, 2009, 2012 e 2013) o consumo de volumes expressivos concentrados somente nesse período. Se considerarmos a série histórica de 15 anos analisados, é possível dizer que, durante todo este período, a Russia tem 44% do total de vinho exportado, sem nenhuma razão aparente ou sem nenhum tipo de correlação. 
         ''')
     with col10:    
-        st.image('https://github.com/camimq/techChallenge_exporta_vinhos/blob/main/img/evolucao_sem_russia.png', caption='Imagem do gráfico de evolução sem a Rússia')
+        st.image('img/evolucao_sem_russia.png', caption='Imagem do gráfico de evolução sem a Rússia')
         st.markdown('''
             Mesmo em segundo lugar, o Paraguai tem evolução constante, especialmente, à partir de 2017 e se mantém até 2019, quando há uma queda no consumo, [devido a uma crise política agravada pela situação econômica do país](https://www.redebrasilatual.com.br/mundo/crise-paraguai-situacao-economica/).
          ''')
